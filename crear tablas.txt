@@ -1,0 +1,63 @@
+create table geography(
+	id in primary key,
+	location varchar(200) not null,
+	map_references varchar(56) not null,
+	area_total int not null,
+	area_land int not null,
+	area_water int not null,
+	area_comparative varchar(100) not null,
+	land_boundaries_total int not null,
+	border_countries int not null,
+	Coastline int not null, 
+	climate varchar(100) not null,
+	oceans_id int not null
+	);
+/*
+No estoy seguro de que funciones el varchar(max)
+*/
+create table oceans(
+	id int primary key,
+	name varchar(200) not null,
+	introduction varchar(max) not null
+	);
+create table continent(
+	id int primary key,
+	name varchar(200)
+	);
+create table country(
+	id int primary key,
+	name varchar(200),
+	continent_id int not null,
+	geography_id int not null, 
+	introduction varchar (max)
+	);
+create table country_oceans(
+	id int primary key, 
+	continent_id int, 
+	oceans_id int
+	);
+create table continent_oceans(
+	id int primary key, 
+	continent_id int not null,
+	oceans_id int not null
+	);
+create table flag(
+	id int primary key,
+	name varchar(56),
+	country_id int,
+	oceans_id int
+	);
+create table maps(
+	id int primary key,
+	name varchar(56) not null,
+	country_id int,
+	oceans_id int
+	);
+create table landscapes(
+	id int primary key, 
+	name varchar(56) not null,
+	country_id int,
+	oceans_id int
+	);
+	
+	
